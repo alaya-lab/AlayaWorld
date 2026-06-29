@@ -839,6 +839,46 @@
             border: 1px solid #1f2937;
         }
 
+        .method-video {
+            position: relative;
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto 36px;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #1f2937;
+            cursor: pointer;
+            aspect-ratio: 16 / 9;
+        }
+        .method-video iframe,
+        .method-video img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .method-video .play-btn {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+            pointer-events: none;
+        }
+        .method-video .play-btn svg {
+            width: 68px;
+            height: 68px;
+            filter: drop-shadow(0 2px 8px rgba(0,0,0,.5));
+            opacity: .9;
+            transition: opacity .2s, transform .2s;
+        }
+        .method-video:hover .play-btn svg {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
         .method-card {
             background: #12121a;
             border: 1px solid #1f2937;
@@ -1013,6 +1053,11 @@
 <!-- ==================== Method Overview ==================== -->
 <div class="section">
     <h2 class="section-title">Method Overview</h2>
+
+    <div class="method-video" id="yt-player" onclick="(function(el){el.innerHTML='<iframe src=\'https://www.youtube.com/embed/JmAI3Dnjqo0?autoplay=1\' allow=\'autoplay; encrypted-media\' allowfullscreen></iframe>';el.style.cursor='default';el.onclick=null;})(this)">
+        <img src="https://img.youtube.com/vi/JmAI3Dnjqo0/maxresdefault.jpg" alt="ChuniWorld demo video">
+        <div class="play-btn"><svg viewBox="0 0 68 48"><path d="M66.5 7.7s-.7-4.7-2.8-6.8C60.7-2 57.2-2 55.6-2.2 46.4-3 34-3 34-3h-.1S21.6-3 12.4-2.2C10.8-2 7.3-2 4.3 1 2.2 3 1.5 7.7 1.5 7.7S.8 13.2.8 18.7v5.1c0 5.5.7 11 .7 11s.7 4.7 2.8 6.8c3 3.1 6.9 3 8.7 3.3C19.2 45.2 34 45.4 34 45.4s12.4 0 21.6-.8c1.6-.2 5.1-.2 8.1-3.2 2.1-2.1 2.8-6.8 2.8-6.8s.7-5.5.7-11v-5.1c0-5.5-.7-11-.7-11z" fill="red"/><path d="M27 33V13l18 10z" fill="#fff"/></svg></div>
+    </div>
 
     <img src="static/img/teaser.jpg" alt="ChuniWorld teaser: diverse scenes, camera control and interactive magic" class="method-teaser">
 
