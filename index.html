@@ -1063,24 +1063,24 @@
 
     <p class="section-desc method-desc">
         AlayaWorld is built around four core properties &mdash;
-        agency, persistence, durability, and responsiveness.
+        interaction, consistency, stability, and runtime.
     </p>
 
     <div class="method-cards">
         <div class="method-card">
-            <h3>Agency</h3>
+            <h3>Interaction</h3>
             <p>Two control channels: a rendered 3D cache with lightweight AdaLN camera modulation for grounded, trajectory-aware navigation, and chunk-level prompt switching to introduce new events mid-generation.</p>
         </div>
         <div class="method-card">
-            <h3>Persistence</h3>
-            <p>World-consistent memory &mdash; an explicit 3D cache reprojected to the queried view for spatial recall, plus a compressed frame-history embedding for temporal continuity, so revisited places stay recognizable.</p>
+            <h3>Consistency</h3>
+            <p>Two forms of complementary memory: an explicit 3D cache reprojected to the queried view for spatial recall, plus a compressed frame-history embedding for temporal continuity, so revisited places stay recognizable.</p>
         </div>
         <div class="method-card">
-            <h3>Durability</h3>
+            <h3>Stability</h3>
             <p>Long-horizon stability from training on drifted histories and an error bank that re-injects accumulated artifacts into both memory and target, preventing errors from compounding over minute-long rollouts.</p>
         </div>
         <div class="method-card">
-            <h3>Responsiveness</h3>
+            <h3>Runtime</h3>
             <p>Real-time interaction via few-step DMD distillation and short temporal chunks, with prompt switching at chunk boundaries to minimize both visual and semantic latency.</p>
         </div>
     </div>
@@ -1364,9 +1364,9 @@
         </div>
     </div>
 
-    <!-- World-Consistent Video Generation -->
+    <!-- Consistency Comparisons with Existing Method -->
     <div class="result-block">
-        <h3 class="result-title">World-Consistent Video Generation</h3>
+        <h3 class="result-title">Consistency Comparisons with Existing Method</h3>
         <p class="result-hint">Turn left and right, then look back &mdash; does the world stay consistent? Same trajectory, four methods.</p>
         <div class="wc-carousel" id="world-carousel">
             <button class="wc-arrow wc-prev" aria-label="Previous">&lsaquo;</button>
