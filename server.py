@@ -34,7 +34,10 @@ HOST = "0.0.0.0"
 HTTP_PORT = 8080       # 网页服务端口
 WS_PORT = 8765         # WebSocket 端口（前端连接用）
 
-STATS_TOKEN = "change-me"   # ← 看板访问口令，改成你自己的
+import os
+# 看板访问口令：从环境变量读，绝不写进代码/仓库
+# 启动时：  STATS_TOKEN=你的口令 python server.py
+STATS_TOKEN = os.environ.get("STATS_TOKEN", "")
 TRAFFIC_LOG = Path(__file__).parent / "traffic.csv"
 
 # ============================================================
@@ -103,6 +106,9 @@ def _aggregate_daily():
 @app.get("/stats")
 async def stats(token: str = ""):
     """流量趋势看板：/stats?token=你的口令"""
+    if not STATS_TOKEN:
+        return PlainTextResponse(
+            "stats disabled: set STATS_TOKEN env var to enable", status_code=503)
     if token != STATS_TOKEN:
         return PlainTextResponse("forbidden", status_code=403)
 
